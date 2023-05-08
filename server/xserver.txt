@@ -1,0 +1,32 @@
+__________________________ login __________________________
+
+https://secure.xserver.ne.jp/xapanel/login/xserver/server
+
++++++++ yahoo +++++++
+XserverアカウントID ： chry385086
+メールアドレス　　　： takato52131@gmail.com
+
++++++++ rakuten +++++++
+XserverアカウントID ： chrh336985
+メールアドレス　　　： takato52132@gmail.com
+
+パスワード	: takato5213
+___________________________________________________________
+
+__________________________ yahoo __________________________
+
+サーバー番号	: sv14526
+ホスト名		: sv14526.xserver.jp
+IPアドレス		: 162.43.122.127
+ドメイン名		: xs786968.xsrv.jp
+
+https://phpmyadmin-sv14526.xserver.jp/
+MySQLデータベース	: xs786968_db
+MySQLユーザ	: xs786968_admin
+パスワード		: admin123
+
+mv /home/username/username.xsrv.jp/public_html /home/username/username.xsrv.jp/_public_html
+mv /home/xs786968/xs786968.xsrv.jp/public_html /home/xs786968/xs786968.xsrv.jp/_public_html
+
+ln -s /home/username/projectname/public /home/username/username.xsrv.jp/public_html
+ln -s /home/xs786968/amazon_yahoo/public /home/xs786968/xs786968.xsrv.jp/public_html
