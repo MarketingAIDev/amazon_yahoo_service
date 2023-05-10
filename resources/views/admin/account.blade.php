@@ -32,11 +32,16 @@
 									<tbody id="item-table-body">
 										@foreach($users as $user)
 										@if ($user['role'] == 'admin') @continue @endif
-										<tr data-id={{$user->id}}>
+										<tr data-id={{ $user->id }}>
 											<td>
-												<span class="delete"><i class='bx bxs-trash'></i></span>
+												<span
+													data-id={{ $user->id }}
+													data-bs-toggle="modal" 
+													data-bs-target="#confirmModal">
+													<i class='bx bxs-trash text-danger'></i>
+												</span>
 											</td>
-											<td rowspan="1" colspan="1">{{$user['family_name']}}</td>
+											<td rowspan="1" colspan="1">{{$user['name']}}</td>
 											<td rowspan="1" colspan="1">{{$user['email']}}</td>
 											<td rowspan="1" colspan="1">{{$user['role']}}</td>
 											<td rowspan="1" colspan="1">
@@ -51,7 +56,7 @@
 										@endforeach
 									</tbody>
 								</table>
-							</div>								
+							</div>
 						</div>
 					</div>
 					<!-- /.card-body -->
@@ -62,31 +67,58 @@
 		</div>
 	</div>
 </div>
+
+<div class="modal fade" id="confirmModal" tabindex="-1" aria-modal="true" role="dialog">
+	<div class="modal-dialog modal-dialog-centered modal-sm" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+			</div>
+			<div class="modal-body">
+				<div class="row">
+					<div class="col-12 mb-3 text-center">
+						<h4>本当にデータを削除しますか?</h4>
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer" id="btns">
+				<!-- <button type="button" class="btn btn-primary">削除</button>
+				<button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">キャンセル</button> -->
+			</div>
+		</div>
+	</div>
+</div>
 @endsection
 	
 @section("script")
 	<script>
-		$(document).ready(function() {
-			$('.delete').on('click', function(event) {
-				if (!window.confirm("本当にデータを削除しますか？")) {
-					return;
-				}
-				let _tr = $(event.target).parents('tr');
-				let userId = _tr.data('id');
-				console.log(userId);
-				$.ajax({
-					url: '{{ route("delete_account") }}',
-					type: 'get',
-					data: {
-						id: userId
-					},
-					success: function() {
-						toastr.success('データが正常に削除されました。');
-						_tr.remove();
-					}
-				});
-			});
 
+		$('#confirmModal').on('shown.bs.modal', function(e) {
+			var target = e.relatedTarget.dataset;
+			$('#btns').html(
+				`<button type="button" class="btn btn-primary" onclick="deleteAccount(${target.id})">削除</button>
+				<button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">キャンセル</button>`
+			);
+		}).on('hidden.bs.modal', function(e) {
+
+		});
+
+		const deleteAccount = (userId) => {
+			$.ajax({
+				url: '{{ route("delete_account") }}',
+				type: 'get',
+				data: {
+					id: userId
+				},
+				success: function() {
+					toastr.success('データが正常に削除されました。');
+					$(`tr[data-id="${userId}"]`).remove();
+					$('#confirmModal').modal('hide');
+				}
+			});
+		};
+
+		$(document).ready(function() {
 			$('.permission').on('click', function(event) {
 				let isPermitted = (event.target.checked == true) ? 1 : 0;
 				$.ajax({

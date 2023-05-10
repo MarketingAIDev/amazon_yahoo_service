@@ -1,6 +1,6 @@
 <IfModule mod_rewrite.c>
     RewriteEngine On
-    RewriteCond %{HTTP} !=on [NC]
+    RewriteCond %{HTTPS} !=on [NC]
     RewriteRule ^fmproxy/(.*)$ http://localhost:32768/$1 [P,L]
 </IfModule>
 <IfModule mod_rewrite.c>

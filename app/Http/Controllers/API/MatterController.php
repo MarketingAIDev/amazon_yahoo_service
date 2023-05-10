@@ -29,7 +29,7 @@ class MatterController extends BaseController
 
         if(count($conditions) == 0) {
             $recruitments = Recruitment::join('users', 'users.id', '=', '_recruitments.producer_id')
-                ->select('_recruitments.*', 'users.family_name as producer_name', 'users.email as email', 'users.avatar as avatar')
+                ->select('_recruitments.*', 'users.name as producer_name', 'users.email as email', 'users.avatar as avatar')
                 ->where('_recruitments.status', 'collecting')
                 ->whereNotIn('_recruitments.id', $applied_recruitments_id)
                 ->orderByDesc('_recruitments.updated_at')//->get();
@@ -39,7 +39,7 @@ class MatterController extends BaseController
         }
         else {
             $recruitments = Recruitment::join('users', 'users.id', '=', '_recruitments.producer_id')
-                ->select('_recruitments.*', 'users.family_name as producer_name', 'users.email as email', 'users.avatar as avatar')
+                ->select('_recruitments.*', 'users.name as producer_name', 'users.email as email', 'users.avatar as avatar')
                 ->where('_recruitments.status', 'collecting')
                 ->whereNotIn('_recruitments.id', $applied_recruitments_id)
                 ->where(function ($query) use ($conditions) {

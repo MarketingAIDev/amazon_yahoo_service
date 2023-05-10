@@ -7,27 +7,38 @@ use Illuminate\Database\Eloquent\Model;
 
 class Item extends Model
 {
-    use HasFactory;
-    protected $table = 'items';
+	use HasFactory;
 
-    protected $fillable = [
-        'user_id',
-        'y_img_url',
-        'item_name',
-        'code_kind',
-        'asin',
-        'jan',
+	protected $table = 'items';
 
-        'y_register_price',
-        'y_target_price',
-        'y_min_price',
-        'postage',
-        'y_shop_list',
-        'y_shops',
-        
-        'status',
-        'in_stock',
-        'is_mailed',
-        'update_time',
-    ];
+	protected $fillable = [
+		'user_id',
+		'category_id',
+		'img_url',
+		'name',
+		'asin',
+		'jan',
+
+		'register_price',
+		'target_price',
+		'min_price',
+		'shop_url',
+		
+		'status',
+		'is_notified',
+	];
+
+	public function category() {
+		return $this->belongsTo(
+			User::class,
+			'category_id'
+		);
+	}
+
+	public function user() {
+		return $this->belongsTo(
+			User::class,
+			'user_id'
+		);
+	}
 }

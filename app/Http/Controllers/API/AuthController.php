@@ -63,7 +63,7 @@ class AuthController extends BaseController
                 'email'                 => 'required|email|max:255|unique:users',
                 'password'              => 'required|min:6|max:30|confirmed',
                 'password_confirmation' => 'required|same:password',
-                'family_name' => 'required',
+                'name' => 'required',
                 'name' => 'required',
                 'nickname' => 'required',
                 'post_number' => 'required',
@@ -87,7 +87,7 @@ class AuthController extends BaseController
                 'password_confirmation.required' => 'パスワード確認フィールドは必須です。',
                 'password_confirmation.same' => 'パスワードの確認とパスワードは一致している必要があります。',
 
-                'family_name.required' => '名前フィールドは必須です。',
+                'name.required' => '名前フィールドは必須です。',
                 'post_number.required' => '郵便番号が空です。',
                 'prefectures.required' => '都道府県が空です。',
                 'city.required' => '市区郡が空です。',

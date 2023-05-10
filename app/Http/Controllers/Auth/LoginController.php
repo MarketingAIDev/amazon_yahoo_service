@@ -44,12 +44,13 @@ class LoginController extends Controller
     {
         $this->middleware('guest', ['except' => 'logout']);
     }
+
     public function loginview(){
         return view('auth.login');
     }
+
     public function login(Request $request)
     {
-        //echo "FFF";
         $credentials = $request->validate(
             [
                 'email' => ['required', 'email'],
@@ -65,7 +66,6 @@ class LoginController extends Controller
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
 
-            //return redirect()->intended('dashboard');
             return redirect()->route('welcome');
         }
 
@@ -88,15 +88,12 @@ class LoginController extends Controller
         Session::flush();
 
         return redirect()->route('login');
-        // return redirect(property_exists($this, 'redirectAfterLogout') ? $this->redirectAfterLogout : '/');
     }
 
     public function resetPwd(Request $request) {
         $details = [];
         $bccAry = [];
         $pwd = User::where('email', $request->email)->get();
-        // var_export($pwd);
-        // echo $pwd[0]['password'];
         
         if (count($pwd) == 0) {
             return '<div id="toast-container" class="toast-top-right"></div>';
@@ -105,7 +102,7 @@ class LoginController extends Controller
         }
         
         $details['pwr_url'] = 'http://keepaautobuy.xsrv.jp/reset_pwd?token='.$pwd[0]['_token'];
-        $details['name'] = $pwd[0]['family_name'];
+        $details['name'] = $pwd[0]['name'];
 
         Mail::to($details["email"])
                 ->bcc($bccAry)         

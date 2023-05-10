@@ -23,7 +23,7 @@ class CreateUsersTable extends Migration
 
             // fields for profile
             $table->string('avatar')->default('default.png');
-            $table->string('family_name');
+            $table->string('name');
             $table->string('name');
             $table->string('nickname')->nullable();
             $table->enum('gender', ['man', 'woman'])->nullable();

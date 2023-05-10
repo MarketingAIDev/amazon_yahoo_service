@@ -1,0 +1,324 @@
+<style>
+	td {
+		border: 1px solid gray;
+	}
+</style>
+<div id="newrequest">
+   <h2>リクエストパラメータ</h2>
+
+   <p>
+	「<a href="/appendix/request/#GETとは">Web APIの使い方#GETとは</a>」をご参照ください。
+   </p>
+
+   <table class="no-scroll">
+	 <tbody><tr align="center">
+	   <th>パラメータ</th>
+	   <th>必須</th>
+	   <th>型</th>
+	   <th>デフォルト値</th>
+	   <th>例</th>
+	   <th>説明</th>
+	 </tr>
+	 <tr>
+	   <td valign="top">appid</td>
+	   <td valign="top">〇</td>
+	   <td valign="top">string</td>
+	   <td valign="top"></td>
+	   <td valign="top"></td>
+	   <td valign="top">アプリケーションID</td>
+	 </tr>
+	 <tr>
+	   <td valign="top">affiliate_type</td>
+	   <td valign="top"></td>
+	   <td valign="top">string</td>
+	   <td valign="top"></td>
+	   <td valign="top">vc</td>
+	   <td valign="top">バリューコマースアフィリエイト（vc）を選択</td>
+	 </tr>
+	 <tr>
+	   <td valign="top">affiliate_id</td>
+	   <td valign="top"></td>
+	   <td valign="top">string</td>
+	   <td valign="top"></td>
+	   <td valign="top"></td>
+	   <td valign="top">バリューコマースアフィリエイトID</td>
+	 </tr>
+	 <tr>
+	   <td valign="top">query</td>
+	   <td valign="top"></td>
+	   <td valign="top">string</td>
+	   <td valign="top"></td>
+	   <td valign="top"></td>
+	   <td valign="top">UTF-8エンコードされた検索キーワード</td>
+	 </tr>
+	 <tr>
+	   <td valign="top">jan_code</td>
+	   <td valign="top"></td>
+	   <td valign="top">string</td>
+	   <td valign="top"></td>
+	   <td valign="top">4905524535815</td>
+	   <td valign="top">JANコード</td>
+	 </tr>
+	 <tr>
+	   <td valign="top">image_size</td>
+	   <td valign="top"></td>
+	   <td valign="top">intger</td>
+	   <td valign="top"></td>
+	   <td valign="top">76</td>
+	   <td valign="top">取得したい任意の画像サイズを指定できます。<br>
+									指定する値と画像サイズ<br>
+									76：76×76<br>
+									106：106×106<br>
+									132：132×132<br>
+									146：146×146<br>
+									300：300×300<br>
+									600：600×600</td>
+	 </tr>
+	 <tr>
+	   <td valign="top">genre_category_id</td>
+	   <td valign="top"></td>
+	   <td valign="top">integer</td>
+	   <td valign="top"></td>
+	   <td valign="top">2495</td>
+	   <td valign="top">ジャンルカテゴリID<br>
+									カンマ区切りで複数指定できる<br>
+									複数指定した場合はOR絞り込みになる</td>
+	 </tr>
+	 <tr>
+	   <td valign="top">brand_id</td>
+	   <td valign="top"></td>
+	   <td valign="top">integer</td>
+	   <td valign="top"></td>
+	   <td valign="top">149</td>
+	   <td valign="top">ブランドID<br>
+									カンマ区切りで複数指定できる<br>
+									複数指定した場合はOR絞り込みになる</td>
+	 </tr>
+	 <tr>
+	   <td valign="top">seller_id</td>
+	   <td valign="top"></td>
+	   <td valign="top">string</td>
+	   <td valign="top"></td>
+	   <td valign="top"></td>
+	   <td valign="top">ストアID</td>
+	 </tr>
+	 <tr>
+	   <td valign="top">price_from</td>
+	   <td valign="top"></td>
+	   <td valign="top">integer</td>
+	   <td valign="top"></td>
+	   <td valign="top">1000</td>
+	   <td valign="top">商品価格 (下限) (下限は含む)</td>
+	 </tr>
+	 <tr>
+	   <td valign="top">price_to</td>
+	   <td valign="top"></td>
+	   <td valign="top">integer</td>
+	   <td valign="top"></td>
+	   <td valign="top">10000</td>
+	   <td valign="top">商品価格 (上限) (上限は含む)</td>
+	 </tr>
+	 <tr>
+	   <td valign="top">affiliate_rate_from</td>
+	   <td valign="top"></td>
+	   <td valign="top">float</td>
+	   <td valign="top"></td>
+	   <td valign="top">10.0</td>
+	   <td valign="top">アフィリエイト料率(下限)（下限は含む）</td>
+	 </tr>
+	 <tr>
+	   <td valign="top">affiliate_rate_to</td>
+	   <td valign="top"></td>
+	   <td valign="top">float</td>
+	   <td valign="top"></td>
+	   <td valign="top">20.0</td>
+	   <td valign="top">アフィリエイト料率(上限)（上限は含む）</td>
+	 </tr>
+	 <tr>
+	   <td valign="top">preorder</td>
+	   <td valign="top"></td>
+	   <td valign="top">boolean</td>
+	   <td valign="top"></td>
+	   <td valign="top">true</td>
+	   <td valign="top">予約商品の指定<br>true：予約商品のみ</td>
+	 </tr>
+	 <tr>
+	   <td valign="top">results</td>
+	   <td valign="top"></td>
+	   <td valign="top">integer</td>
+	   <td valign="top">20</td>
+	   <td valign="top">50</td>
+	   <td valign="top">検索結果の返却数</td>
+	 </tr>
+	 <tr>
+	   <td valign="top">start</td>
+	   <td valign="top"></td>
+	   <td valign="top">integer</td>
+	   <td valign="top">1</td>
+	   <td valign="top">31</td>
+	   <td valign="top">返却結果の先頭位置<br>例）31件目から欲しい場合は「31 」<br><b class="txt-red">※start + resultsの合計は1,000が上限</b></td>
+	 </tr>
+	 <tr>
+	   <td valign="top">in_stock</td>
+	   <td valign="top"></td>
+	   <td valign="top">boolean</td>
+	   <td valign="top"></td>
+	   <td valign="top">true</td>
+	   <td valign="top">在庫有無<br>true：在庫ありのみ<br>false：在庫なしのみ</td>
+	 </tr>
+	 <tr>
+	   <td valign="top">is_discounted</td>
+	   <td valign="top"></td>
+	   <td valign="top">boolean</td>
+	   <td valign="top"></td>
+	   <td valign="top">true</td>
+	   <td valign="top">セール対象商品に絞り込み</td>
+	 </tr>
+	 <tr>
+	   <td valign="top">shipping</td>
+	   <td valign="top"></td>
+	   <td valign="top">string</td>
+	   <td valign="top"></td>
+	   <td valign="top">free</td>
+	   <td valign="top">送料区分の指定<br>
+									free：送料無料<br>
+									conditional_free：条件付き送料無料<br>
+									※複数指定によるOR検索可</td>
+	 </tr>
+	 <tr>
+	   <td valign="top">payment</td>
+	   <td valign="top"></td>
+	   <td valign="top">string</td>
+	   <td valign="top"></td>
+	   <td valign="top"></td>
+	   <td valign="top">支払い方法<br>
+									1：クレジットカード<br>
+									2：銀行振込<br>
+									4：商品代引<br>
+									8：郵便振替<br>
+									16：Yahoo!ウォレット登録済みクレジットカード<br>
+									32：モバイルSuica<br>
+									64：コンビニ<br>
+									128：ペイジー<br>
+									256：ドコモケータイ払い<br>
+									512：auかんたん決済<br>
+									1024：ソフトバンク・ワイモバイルまとめて支払い<br>
+									4096：PayPay<br>
+									8192：ゆっくり払い<br>
+									16384：PayPayあと払い</td>
+	 </tr>
+	 <tr>
+	   <td valign="top">user_rank</td>
+	   <td valign="top"></td>
+	   <td valign="top">string</td>
+	   <td valign="top">guest</td>
+	   <td valign="top">diamond</td>
+	   <td valign="top">指定すると会員属性に応じたポイント額を返します。<br>
+									値：diamond/platinum/gold/silver/bronze/guest(デフォルト)</td>
+	 </tr>
+	 <tr>
+	   <td valign="top">sale_end_from</td>
+	   <td valign="top"></td>
+	   <td valign="top">integer</td>
+	   <td valign="top">now</td>
+	   <td valign="top"></td>
+	   <td valign="top">販売終了UNIX時間の下限</td>
+	 </tr>
+	 <tr>
+	   <td valign="top">sale_end_to</td>
+	   <td valign="top"></td>
+	   <td valign="top">integer</td>
+	   <td valign="top"></td>
+	   <td valign="top"></td>
+	   <td valign="top">販売終了UNIX時間の上限</td>
+	 </tr>
+	 <tr>
+	   <td valign="top">sale_start_from</td>
+	   <td valign="top"></td>
+	   <td valign="top">integer</td>
+	   <td valign="top">0</td>
+	   <td valign="top"></td>
+	   <td valign="top">販売開始UNIX時間の下限</td>
+	 </tr>
+	 <tr>
+	   <td valign="top">sale_start_to</td>
+	   <td valign="top"></td>
+	   <td valign="top">integer</td>
+	   <td valign="top">now + 7d</td>
+	   <td valign="top"></td>
+	   <td valign="top">販売開始UNIX時間の上限</td>
+	 </tr>
+	 <tr>
+	   <td valign="top">delivery_area</td>
+	   <td valign="top"></td>
+	   <td valign="top">string</td>
+	   <td valign="top">string</td>
+	   <td valign="top">08</td>
+	   <td valign="top">きょうつく、あすつく、翌々日配送の都道府県の指定<br>
+									都道府県コードは下方を参照<br>
+									<span class="txt-red">JIS都道府県コードに準拠するため、1桁の場合も頭に0を付けて2桁のstringで指定すること</span><br>
+									<br>
+									<b>※delivery_area, delivery_deadline, delivery_dayの3パラメータ全てが指定された場合にのみ絞り込みになる。</b><br>
+									<b>delivery_areaのみ指定した場合は、絞り込みはしないが、レスポンスのDelivery配下が指定した都道府県の情報になる。</b>
+	   </td>
+	 </tr>
+	 <tr>
+	   <td valign="top">delivery_day</td>
+	   <td valign="top"></td>
+	   <td valign="top">integer</td>
+	   <td valign="top"></td>
+	   <td valign="top">0</td>
+	   <td valign="top">あすつく、きょうつく、翌々日配送の指定<br>
+									0：きょうつく<br>
+									1：あすつく<br>
+									2：翌々日配送
+	   </td>
+	 </tr>
+	 <tr>
+	   <td valign="top">delivery_deadline</td>
+	   <td valign="top"></td>
+	   <td valign="top">integer</td>
+	   <td valign="top"></td>
+	   <td valign="top">13</td>
+	   <td valign="top">発送日の締め時間を指定<br>
+								   ・24時間表記 (1〜24)で指定 <br>
+								   　integerで指定(01のようなstringはNG)<br>
+								   　締め時間全てを指定する場合は1を指定 (1〜24)で全時間指定となる<br>
+								   ・境界は含まれる<br>
+								   　例）15　→ 15時〜24時が締め時間の当日配送可能商品で絞り込まれる<br>
+								   ・99を指定した場合のみ現在時+1時間が入って絞りこまれる<br>
+								   　例）14時20分 →  15時, 15時00分 → 16時
+	   </td>
+	 </tr>
+	 <tr>
+	   <td valign="top">sort</td>
+	   <td valign="top"></td>
+	   <td valign="top">string</td>
+	   <td valign="top">-score</td>
+	   <td valign="top">+price</td>
+	   <td valign="top">並び順を指定<br>-score：おすすめ順<br>+price：価格の安い順<br>-price：価格の高い順<br>-review_count：商品レビュー数の多い順<br>※UTF-8にエンコードされている必要あり。</td>
+	 </tr>
+	 <tr>
+	   <td valign="top">condition</td>
+	   <td valign="top"></td>
+	   <td valign="top">string</td>
+	   <td valign="top"></td>
+	   <td valign="top">new</td>
+	   <td valign="top">商品状態の指定<br>used: 中古<br>new: 新品</td>
+	 </tr>
+
+   </tbody></table>
+
+   <p><b>都道府県コード</b></p>
+   <p>01：北海道<br>
+02：青森県、03：岩手県、04：宮城県、05：秋田県、06：山形県、07：福島県<br>
+08：茨城県、09：栃木県、10：群馬県、11：埼玉県、12：千葉県、13：東京都、14：神奈川県<br>
+15：新潟県、16：富山県、17：石川県、18：福井県、19：山梨県、20：長野県、21：岐阜県、22：静岡県、23：愛知県<br>
+24：三重県、25：滋賀県、26：京都府、27：大阪府、28：兵庫県、29：奈良県、30：和歌山県<br>
+31：鳥取県、32：島根県、33：岡山県、34：広島県、35：山口県<br>
+36：徳島県、37：香川県、38：愛媛県、39：高知県<br>
+40：福岡県、41：佐賀県、42：長崎県、43：熊本県、44：大分県、45：宮崎県、46：鹿児島県、47：沖縄県</p>
+
+   <p class="mb10">サンプルリクエストURL</p>
+   <pre><code class="lang-plaintext hljs">https://shopping.yahooapis.jp/ShoppingWebService/V3/itemSearch?appid=&lt;あなたのアプリケーションID&gt;&amp;query=nike</code></pre>
+   </div>

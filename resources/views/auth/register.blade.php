@@ -64,8 +64,10 @@
 				<span class="app-brand-text demo text-body fw-bolder" style="text-transform: uppercase;">{{ env('APP_NAME') }}</span>
 			</a>
 		</div>
+		
 		<!-- /Logo -->
-		<!-- <h4 class="mb-2">冒険はここから始まります。 🚀</h4> -->
+		<h4 class="mb-3">{{ env('APP_NAME') }}へようこそ！ 👋</h4>
+
 		@if ($errors->any())
 			<div class="alert alert-danger alert-dismissible" role="alert">
 				{{__('messages.auth.email_or_password_error')}} 
@@ -81,11 +83,11 @@
 					type="text"
 					class="form-control"
 					id="username"
-					placeholder="{{__('messages.profile.name')}}" name="family_name"
+					placeholder="{{__('messages.profile.name')}}" name="name"
 					autofocus
 				/>
 			</div>
-			@error('family_name')
+			@error('name')
 				<small class="text-danger text-xs">{{ $message }}</small>                                   
 			@enderror
 			<div class="mb-2">
@@ -148,18 +150,17 @@
 </div>
 @endsection
 
-<script src="{{ asset('assets/plugins/jquery/jquery.min.js') }}"></script>
-
+@section('script')
 <script>
 	$(document).ready(function() {        
 		$("#pass-show").on('click', function(event) {
-
 			event.preventDefault();
-			if($('#password').attr("type") == "text"){
+
+			if ($('#password').attr("type") == "text") {
 				$('#password').attr('type', 'password');
 				$('#pass-show').removeClass( "fas fa-unlock" );
 				$('#pass-show').addClass("fas fa-lock"); 
-			}else if($('#password').attr("type") == "password"){
+			} else if ($('#password').attr("type") == "password") {
 				$('#password').attr('type', 'text');
 				$('#pass-show').removeClass( "fas fa-lock" );
 				$('#pass-show').addClass("fas fa-unlock");  
@@ -167,3 +168,4 @@
 		});
 	});
 </script>
+@endsection

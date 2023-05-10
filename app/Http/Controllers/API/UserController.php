@@ -33,7 +33,7 @@ class UserController extends BaseController
         $validator = Validator::make(
             $data,
             [
-                'family_name' => 'required',
+                'name' => 'required',
                 'name' => 'required',
                 'nickname' => $authUser['role'] == 'worker' ? 'required' : '',
                 'post_number' => 'required',

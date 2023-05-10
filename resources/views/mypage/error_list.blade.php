@@ -37,7 +37,7 @@ $secret = "jOr0rr7kmvXR9r5T6ERkXfN7KpGTu4vmd8TC8Ahv";
 										<td>{{ $loop->iteration + ($items->currentPage() - 1) * 50 }}</td>
 										<td rowspan="1" colspan="1">{{$item['asin']}}</td>
 										<td rowspan="1" colspan="1">{{$item['jan']}}</td>
-                    <td rowspan="1" colspan="1">{{$item['item_name']}}</td>
+                    <td rowspan="1" colspan="1">{{$item['name']}}</td>
 									</tr>
 									@endforeach
 								</tbody>

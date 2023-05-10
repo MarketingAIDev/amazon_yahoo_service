@@ -11,7 +11,7 @@ class WelcomeController extends Controller
     public function index()
     {
         if (!empty(Auth::user())) {
-            return redirect("mypage");
+            return redirect("dashoard");
         } else {            
             return redirect('login');
         }

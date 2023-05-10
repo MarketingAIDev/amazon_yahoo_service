@@ -35,6 +35,10 @@ AKIAIEIK25QVYSRSYWDQ
 Qez4WbW9iuJKk6zNmqDbJ429jpwmpH1AvBXJSBD6
 lauttujuh01-22
 
+AKIAIQ2HCGIJBZQD6YYQ
+9+qt7SuM4m7upfR+VZbEjwO7EQTZW5Z4bLLPQHlL
+shisyois-22
+
 ~~~~~~~~~~ Aamzon PAAPI test ~~~~~~~~~~
 
 https://webservices.amazon.co.jp/paapi5/scratchpad/

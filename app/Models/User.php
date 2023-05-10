@@ -21,32 +21,10 @@ class User extends Authenticatable
      */
     protected $fillable = [
         '_token',
+        'name',
         'email',
-        'email_verified_at',
         'password',        
         'role',        
-        'family_name',
-        'cell_phone',
-        'y_register_percent',
-        'y_lower_bound',
-        'y_upper_bound',
-        'fee_include',
-        'ex_key',
-        'is_tracking',
-        'is_permitted',
-        'register_number',
-        'yahoo_token',
-        'yahoo_token1',
-        'yahoo_token2',
-        'access_key',
-        'secret_key',
-        'partner_tag',
-        'web_hook',
-        'fall_pro',
-        'is_registering',
-        'len',
-        'name',
-        'total',
     ];
 
     /**
@@ -58,26 +36,15 @@ class User extends Authenticatable
         'password',
     ];
 
-    /**
-     * The attributes that should be cast.
-     *
-     * @var array
-     */
-    protected $casts = [
-    ];
-
-    /**
-     * The accessors to append to the model's array form.
-     *
-     * @var array
-     */
-    protected $appends = [
-    ];
-
-    public function csv_list() {
+    public function categories() {
         return $this->hasMany(
-            UserLog::class,
-            'user_id'
+            Category::class,
+        );
+    }
+
+    public function items() {
+        return $this->hasMany(
+            Item::class,
         );
     }
 }

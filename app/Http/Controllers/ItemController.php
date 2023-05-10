@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use App\Models\Item;
+use App\Models\Category;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -11,9 +12,11 @@ use DataTables;
 
 class ItemController extends Controller
 {
-    public function add_item() {
+    public function add_item($id) {
 		$user = Auth::user();
-		return view('items.add_item', ['user' => $user]);
+		$category = Category::find($id);
+
+		return view('items.add_item', ['user' => $user, 'category' => $category]);
 	}
     
 	public function save_item(Request $request) {
@@ -36,26 +39,44 @@ class ItemController extends Controller
 		}
 	}
 
-	public function item_list() {
+	public function list(Request $request, $id) {
 		$user = Auth::user();
-		$items = Item::where('user_id', $user->id)->where('status', 1)->orderBy('id', 'desc')->paginate(50);
-		return view('items.item_list', ['user' => $user, 'items' => $items]);
+		$category = Category::find($id);
+		return view('items.item_list', ['user' => $user, 'category' => $category]);
 	}
 
-	public function item_datatable(Request $request)
-	{
+	public function item_datatable(Request $request) {
 		if ($request->ajax()) {
-			$data = Item::select('id', 'y_img_url', 'item_name', 'asin', 'jan', 'y_register_price', 'y_target_price', 'y_min_price', 'y_shop_url', 'updated_time')->where('user_id', Auth::id())->where('status', 1)->get();
+			$data = Item::select('id', 'img_url', 'name', 'asin', 'jan', 'register_price', 'target_price', 'min_price', 'shop_url')->where('category_id', $_GET['categoryId'])->where('status', 1)->get();
 			return Datatables::of($data)->make(true);
 		}
 	}
 
 	public function delete_item(Request $request) {
-		if ($request->id == 'all') {
-			Item::where('user_id', Auth::id())->delete();
-		} else {
+		if ($request->condition == 'all') {
+			Item::where('category_id', $request->id)->delete();
+		} else if ($request->condition == 'one') {
 			Item::find($request->id)->delete();
 		}
 		return;
+	}
+
+	public function csv_download(Request $request, $id) {
+		$data = "";
+		$filename = "";
+		$category = Category::find($id);
+
+		$data .= "ASIN\n";
+		$items = $category->items;
+		foreach ($items as $i) {
+			$data .= $i['asin']."\n";
+		}
+		
+		$filename = $category->name . "ASINリスト";
+		
+		header('Content-Type: application/csv');
+		header('Content-Disposition: attachment; filename="' . $filename . "_" . date("Y-m-d") . '.csv"');
+		echo $data;
+		exit();
 	}
 }

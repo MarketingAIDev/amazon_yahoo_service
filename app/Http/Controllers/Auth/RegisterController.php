@@ -64,7 +64,7 @@ class RegisterController extends Controller
                 'email'                 => 'required|email|max:255|unique:users',
                 'password'              => 'required|min:6|max:30|confirmed',
                 'password_confirmation' => 'required|same:password',
-                'family_name' => 'required', 
+                'name' => 'required', 
             ],
             [
                 'email.required' => 'メールフィールドは必須です。',
@@ -80,7 +80,7 @@ class RegisterController extends Controller
                 'password_confirmation.required' => 'パスワード確認フィールドは必須です。',
                 'password_confirmation.same' => 'パスワードの確認とパスワードは一致している必要があります。',
 
-                'family_name.required' => '名前フィールドは必須です。',
+                'name.required' => '名前フィールドは必須です。',
             ]
         );
     }

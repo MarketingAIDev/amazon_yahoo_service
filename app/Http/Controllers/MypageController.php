@@ -38,7 +38,7 @@ class MypageController extends Controller
 
 	public function register_tracking(Request $request) {
 		$user = User::find(Auth::user()->id);
-		$user['y_register_percent'] = $request['percent'];
+		$user['fall_pro'] = $request['percent'];
 		$user['y_lower_bound'] = $request['lower'];
 		$user['y_upper_bound'] = $request['upper'];
 		$user['fee_include'] = $request['fee'];
@@ -57,12 +57,12 @@ class MypageController extends Controller
 	public function update_tracking(Request $request)
 	{
 		$user = User::find(Auth::user()->id);
-		$user['y_register_percent'] = $request['percent'];
+		$user['fall_pro'] = $request['percent'];
 		$user->save();
 		$items = Item::where('user_id', Auth::user()->id)->get();
 		foreach ($items as $item) {
-			$item['y_register_price'] = $item['y_min_price'];
-			$item['y_target_price'] = $item['y_min_price'] * $request['percent'] / 100;
+			$item['register_price'] = $item['min_price'];
+			$item['target_price'] = $item['min_price'] * $request['percent'] / 100;
 			$item->save();
 			// sleep(2);
 		}
@@ -116,9 +116,9 @@ class MypageController extends Controller
 			
 			asort($total);
 	
-			$item->y_min_price = reset($total);
-			$item->y_register_price = reset($total);
-			$item->y_target_price = round(reset($total) * $user->y_register_percent / 100);
+			$item->min_price = reset($total);
+			$item->register_price = reset($total);
+			$item->target_price = round(reset($total) * $user->fall_pro / 100);
 			$item->save();
 			
 			header('Location: ' . array_keys($total, reset($total))[0]);
@@ -153,8 +153,8 @@ class MypageController extends Controller
 
 	public function edit_track(Request $request) {
 		$item = Item::find($request['id']);
-		$item->y_target_price = $request['price'];
-		$item->is_mailed = 0;
+		$item->target_price = $request['price'];
+		$item->is_notified = 0;
 		$item->save();
 	}
 
@@ -167,7 +167,7 @@ class MypageController extends Controller
 			$items = Item::where('user_id', $user->id)
 							->where('status', 1)
 							->where(function($query) {
-								$query->where('item_name', 'like', $GLOBALS['pattern'])
+								$query->where('name', 'like', $GLOBALS['pattern'])
 											->orWhere('jan', 'like', $GLOBALS['pattern'])
 											->orWhere('asin', 'like', $GLOBALS['pattern']);
 							})
@@ -188,14 +188,14 @@ class MypageController extends Controller
 		}
 
 		$item->user_id = $user['id'];
-		$item->y_img_url = $request['img-url'];
-		$item->item_name = $request['itemName'];
+		$item->img_url = $request['img-url'];
+		$item->name = $request['itemName'];
 		$item->code_kind = 0;
 		// $item->asin = null;
 		$item->jan = $request['itemCode'];
-		$item->y_register_price = $request['current-price'];
-		$item->y_target_price = $request['target-price'];
-		$item->y_min_price = $request['current-price'];
+		$item->register_price = $request['current-price'];
+		$item->target_price = $request['target-price'];
+		$item->min_price = $request['current-price'];
 		$item->y_shop_list = "https://ck.jp.ap.valuecommerce.com/servlet/referral?sid=3546031&pid=888145296&vc_url='" . urlencode($request['shop-url']);
 		$item->y_shops = json_encode(array($request['shop-url']));
 		$item->updated_time = date("Y.m.d H.i.s");
@@ -218,7 +218,7 @@ class MypageController extends Controller
 
 		$user = User::find($res['user_id']);
 		$item = Item::find($res['item_id']);
-		$item->is_mailed = 1;
+		$item->is_notified = 1;
 
 		$lists = json_decode($item->y_shops);
 		$total = array();
@@ -261,22 +261,22 @@ class MypageController extends Controller
 		if (reset($total) == 0) {
 			return;
 		}
-		$item->y_min_price = reset($total);
+		$item->min_price = reset($total);
 		$item->y_shop_list = array_keys($total, reset($total))[0];
 		$item->save();
 
 		$item = Item::find($res['item_id']);
 
 		$details['email'] = $user['email'];
-		$details['name'] = $user['family_name'];
-		$details['item_name'] = $item['item_name'];
-		$details['y_register_price'] = $item['y_register_price'];
-		$details['y_target_price'] = $item['y_target_price'];
-		$details['y_min_price'] = $item['y_min_price'];
+		$details['name'] = $user['name'];
+		$details['name'] = $item['name'];
+		$details['register_price'] = $item['register_price'];
+		$details['target_price'] = $item['target_price'];
+		$details['min_price'] = $item['min_price'];
 		$details['link'] = $item['y_shop_list'];
 		$details['asin'] = $item['asin'];
 		
-		if ($details['y_target_price'] <= $details['y_min_price']) {
+		if ($details['target_price'] <= $details['min_price']) {
 			return;
 		}
 		
@@ -284,8 +284,8 @@ class MypageController extends Controller
 				->bcc($bccAry)
 				->send(new \App\Mail\UpdateMail($details));
 
-		$item->y_register_price = $item['y_min_price'];
-		$item->y_target_price = round($item['y_min_price'] * $user['y_register_percent'] / 100);
+		$item->register_price = $item['min_price'];
+		$item->target_price = round($item['min_price'] * $user['fall_pro'] / 100);
 		$item->save();
 	}
 
@@ -303,7 +303,7 @@ class MypageController extends Controller
 			let janCode = document.getElementById("itm_cat").innerHTML.match(/\d{13}/)[0];
 			let name = document.querySelector(\'p[class="elName"]\').innerHTML;
 			let currentPrice = document.getElementsByClassName("elPriceNumber")[0].innerHTML.replace(/,/g, "");
-			let y_img_url = document.getElementsByClassName("elPanelImage")[0].src;
+			let img_url = document.getElementsByClassName("elPanelImage")[0].src;
 			let y_shop_list = document.querySelector(\'meta[property="og:url"]\').content;
 			
 			let inject = 
@@ -316,7 +316,7 @@ class MypageController extends Controller
 					\'<input type="hidden" name="itemName" value="\' + name + \'" />\' + 
 					\'<input type="hidden" name="itemCode" value="\' + janCode + \'" />\' + 
 					\'<input type="hidden" name="current-price" value="\' + currentPrice + \'" />\' + 
-					\'<input type="hidden" name="img-url" value="\' + y_img_url + \'" />\' + 
+					\'<input type="hidden" name="img-url" value="\' + img_url + \'" />\' + 
 					\'<input type="hidden" name="shop-url" value="\' + y_shop_list + \'" />\' + 
 					\'<div style="margin-top: 10px;"><button type="submit" class="btn btn-block btn-primary" style="background-color: lightblue; width: 200px !important;">トラッキング登録</button></div>\' + 
 				\'</div>\' +
@@ -346,9 +346,9 @@ class MypageController extends Controller
 
 	public function register_yahoo(Request $request) {
 		$user = User::find(Auth::id());
-		$user['yahoo_token'] = $request['token'];
-		$user['yahoo_token1'] = $request['token1'];
-		$user['yahoo_token2'] = $request['token2'];
+		$user['yahoo_id'] = $request['token'];
+		$user['yahoo_id1'] = $request['token1'];
+		$user['yahoo_id2'] = $request['token2'];
 		$user->save();
 	}
 
@@ -386,7 +386,7 @@ class MypageController extends Controller
 	public function change_percent(Request $request) {
 		$res = $request->all();
 		$user = User::find(Auth::user()->id);
-		$user['y_register_percent'] = $res['pro'];
+		$user['fall_pro'] = $res['pro'];
 		$user->save();
 		return $res['pro'];
 	}
