@@ -25,6 +25,8 @@ class GetItemInfo {
 			Marketplace: "www.amazon.co.jp",
 		};
 
+		console.log(commonParameters);
+
 		let requestParameters = {
 			// this is the parameter to get information with asin from amazon
 			ItemIds: [this.code],
@@ -46,6 +48,7 @@ class GetItemInfo {
 						this.result = undefined;
 					} else {
 						this.jan = amazonData.ItemsResult.Items[0].ItemInfo.ExternalIds.EANs.DisplayValues[0];
+						console.log('JAN code>>>>>>>>>>>>>>>>>>>', this.jan);
 					}
 				} catch (err) {
 					console.log(
@@ -65,7 +68,7 @@ class GetItemInfo {
 		// gets the information of items from YAHOO
 		this.query.jan = this.jan;
 		if (this.jan != null) {
-			let url = `https://shopping.yahooapis.jp/ShoppingWebService/V3/itemSearch?appid=${this.category.yahoo_id}&jan_code=${this.jan}&image_size=76&results=1&price_from=${this.category.target_price}&in_stock=true&sort=%2Bprice&condition=new`;
+			let url = `https://shopping.yahooapis.jp/ShoppingWebService/V3/itemSearch?appid=${this.category.yahoo_id}&affiliate_type=vc&affiliate_id=https%3A%2F%2Fck.jp.ap.valuecommerce.com%2Fservlet%2Freferral%3Fsid%3D3691564%26pid%3D889248890%26vc_url%3D&jan_code=${this.jan}&image_size=76&results=1&price_from=${this.category.target_price}&in_stock=true&sort=%2Bprice&condition=new`;
 
 			await axios
 				.get(url, {})

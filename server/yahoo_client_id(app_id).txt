@@ -1,0 +1,153 @@
+~~~~~~~~~~ Yahoo アプリケーションID(Client ID): ~~~~~~~~~~
+
+https://e.developer.yahoo.co.jp/dashboard/
+
+(私のID)
+dj00aiZpPUJURzE1M2dsOHo5cyZzPWNvbnN1bWVyc2VjcmV0Jng9N2Q-
+dj00aiZpPXhVTktyWXozaVRYNiZzPWNvbnN1bWVyc2VjcmV0Jng9ZWQ-
+dj00aiZpPWlvMHlQUDNlclRHMiZzPWNvbnN1bWVyc2VjcmV0Jng9MjA-
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Yahoo ID   : takato199668@yahoo.co.jp
+パスワード  : takato5213
+
+ヤフー 確認コード: 915949
+このコードは他の人には絶対に教えないでください。
+@login.yahoo.co.jp #915949
+
+dj00aiZpPWxsemtaUzJ5a0p2OSZzPWNvbnN1bWVyc2VjcmV0Jng9Mzg-
+dj00aiZpPUhabDh0MzJra3BUcCZzPWNvbnN1bWVyc2VjcmV0Jng9NTg-
+dj00aiZpPU9rSEVuRlNJMDR2aiZzPWNvbnN1bWVyc2VjcmV0Jng9ZjQ-
+dj00aiZpPVJpSzc0VjBjUGs5UCZzPWNvbnN1bWVyc2VjcmV0Jng9ZTc-
+dj00aiZpPXJmZ2dEamlSWnJSSSZzPWNvbnN1bWVyc2VjcmV0Jng9MzE-
+dj00aiZpPVNUTng1Zk04SXBIRSZzPWNvbnN1bWVyc2VjcmV0Jng9YTk-
+dj00aiZpPXh1UG5naGZQRzZWaiZzPWNvbnN1bWVyc2VjcmV0Jng9NTg-
+dj00aiZpPTJncXVRZXE5QXY5cyZzPWNvbnN1bWVyc2VjcmV0Jng9ZTk-
+dj00aiZpPWZRckRRcXJRcEU2NSZzPWNvbnN1bWVyc2VjcmV0Jng9MDY-
+dj00aiZpPTdBcFEzOFRSSEVnUyZzPWNvbnN1bWVyc2VjcmV0Jng9MzE-
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Yahoo ID   : ebis777g@gmail.com
+パスワード  : 63hezmtR
+
+dj00aiZpPVc2OVlvaFdhQjBxZSZzPWNvbnN1bWVyc2VjcmV0Jng9NGY-
+dj00aiZpPUtBWVR6MjlNN0xxNiZzPWNvbnN1bWVyc2VjcmV0Jng9NzU-
+dj00aiZpPUxLTWNVMHk2VVgyQyZzPWNvbnN1bWVyc2VjcmV0Jng9M2I-
+dj00aiZpPW9jbmlMT1FPeDlRYiZzPWNvbnN1bWVyc2VjcmV0Jng9YTQ-
+dj00aiZpPU1jM3M4c2tiWks0QSZzPWNvbnN1bWVyc2VjcmV0Jng9ZjM-
+dj00aiZpPTNua08yMzZ0WW9DaCZzPWNvbnN1bWVyc2VjcmV0Jng9NzQ-
+dj00aiZpPW91N2dpS0dkUkZ2WSZzPWNvbnN1bWVyc2VjcmV0Jng9NzY-
+dj00aiZpPU1oa3VsVG9heml0USZzPWNvbnN1bWVyc2VjcmV0Jng9N2Q-
+dj00aiZpPWlZNEF6OWU3cmhnZSZzPWNvbnN1bWVyc2VjcmV0Jng9YjY-
+dj00aiZpPXFncWN2bjRqZ1hNUSZzPWNvbnN1bWVyc2VjcmV0Jng9MGM-
+
+https://support.yahoo-net.jp/PccDeveloper/s/article/H000006122
+
+Client ID（アプリケーションID）とは
+Client IDは、アプリケーションIDと表現されることもあります。このヘルプページでは以降Client IDとします。
+Client IDは、アプリケーションを特定する任意の文字列です。
+Yahoo! JAPANのWebサービスを利用するには、Client IDが必要です。Client IDはYahoo! JAPAN IDをお持ちの方ならどなたでも発行できます。各リクエスト送信時に必要で、開発者自身ではなく、アプリケーションを特定します。
+複数のアプリケーションを開発したときには、それぞれ異なるClient IDを使用することをおすすめします。ひとつのYahoo! JAPAN IDにつき、10個までClient IDを登録できます。
+Client IDは、Yahoo! JAPANのWebサービスへのアクセスを制限することに使われます。アクセスのカウントは、リクエストに付与されたClient IDが元になります。利用制限は、各Webサービスによって異なり、上限を超えた場合は、一定時間利用することができなくなります。各利用制限については各Webサービスのドキュメントをご覧ください。
+Client IDは、Yahoo! JAPANのAPIの使用状況を把握し、不正行為を防ぐために使用されます。第三者に開示したり、第三者が参照できる場所に記載しないでください。
+
+https://support.yahoo-net.jp/PccDeveloper/s/article/H000006131
+
+Client ID（アプリケーションID）を発行する
+
+1. Client ID（アプリケーションID）の発行手順は、以下のとおりです。
+
+2. Yahoo! JAPAN IDでログインした状態で、「新しいアプリケーションを開発」のページを表示します。
+3. フォームの内容にそって、必要項目を入力します。
+    ヒント
+        「連絡用メールアドレスの確認」手続きが済んでいないメールアドレスを選択した場合、メールアドレス確認の手続きに進みます。詳しくは「連絡用メールアドレスの確認」をご覧ください。
+        入力したメールアドレスあてには、Yahoo!デベロッパーネットワークからのシステムメンテナンスやwebサービスの更新情報などの重要なお知らせを配信します。
+        サイトやアプリケーションの名称、URL、説明を入力した場合、Yahoo!デベロッパーネットワークでサイトやアプリケーションを紹介する場合があります。
+4. 入力が完了したら、内容に間違いないかを確認します。また、ガイドラインの内容も確認してください。
+5. 問題がなければ［ガイドラインに同意しますか？］の［同意する］を選択します。
+6.［確認］ボタンを押します。
+    確認ページが表示されます。入力した内容に問題がなければ［登録］ボタンを押します。Client ID（アプリケーションID）の発行が完了します。
+
+https://e.developer.yahoo.co.jp/register
+
+Yahoo! JAPANが提供するWeb APIを利用したアプリケーション開発を行っていただくにあたって必要な情報をご登録ください。
+ご登録いただく情報は、アプリケーションの利用状況の把握や、アプリケーションの不正利用を防ぐ目的で使用いたします。
+
+Web APIを利用する場所
+    ID連携利用有無(必須)
+        ID連携を利用しない
+        ID連携を利用する
+            ※この項目は一度登録すると変更できません。
+            ID連携利用有無について
+            ID連携を利用する：Yahoo! ID連携を利用する、あるいはYahoo!ショッピングのストア向けAPIを利用する場合に選択してください。
+            ID連携を利用しない：YOLP(地図)やテキスト解析などID連携を利用しないAPIのみでアプリケーションIDを利用する場合に選択してください。
+
+アプリケーションの利用者情報（契約者情報）
+    利用者情報(必須)
+        個人
+        法人・個人事業主
+        大学・研究機関
+
+    メールアドレス(必須)
+        設定済み
+            メールアドレスについて
+            メンテナンスなど重要なお知らせは、デベロッパーネットワークの更新履歴またはメールにてお知らせいたします。
+            宛先を変更する場合はご登録のメインメールアドレスを変更してください。
+
+個人情報授受にかかる確認事項
+    個人情報提供先としてユーザーへ開示することに同意しますか？(必須)
+        同意する
+        同意しない
+            「同意する」で一度登録すると変更できません。
+            個人情報提供先について
+            個人情報を取得する場合、2022年4月施行の改正個人情報保護法第28条に基づき、ユーザーから開示請求があった際には、ご登録いただいた下記情報を個人情報提供先として開示します。
+            ▼開示情報
+            個人：アプリケーション名、住所、氏名
+            個人事業主/法人：法人名・屋号・組織名等、住所、代表者氏名/氏名
+            大学・研究機関：法人名・屋号・組織名等、住所、代表者氏名/氏名
+            ※ 住所：契約者住所の国または地域、契約者住所
+            開示情報を含め正しい情報を登録されていない場合、利用停止させていただく場合がございます。
+            「同意しない」を選択された場合でも、2022年3月末までに生じた個人情報の提供に関して、ユーザーから開示請求があった場合には、当該ユーザーに以前ご登録されていた情報を開示する場合がありますので、ご了承ください。
+
+住所
+    契約者住所の国または地域(必須)
+        日本
+            ※この項目は一度登録すると変更できません。
+            契約者住所の国または地域について
+            利用者情報にて選択された区分に合わせて国名を選択してください。
+            法人：法人格の所在地
+            個人事業主：開業届先住所
+            大学・研究機関：所在地
+            個人：住民票住所
+            また、Yahoo! ID連携の利用を選択されており、日本以外の国名を選択された場合、選択された国名にある提供先に情報提供がある旨の記載を利用者同意画面にて表示します。
+
+アプリケーションの基本情報
+    アプリケーション名(必須)
+        アマゾン・ヤフーアフィリエイトサイト
+            18/50文字
+            アプリケーション名について
+            開発するWebサイトまたはアプリケーションの名称を入力してください。
+            入力された名称は利用者同意画面のアプリケーション名、および、ログイン履歴のサービス名としてユーザー画面上にも表示されます。
+
+    サイトURL
+        https://xs786968.xsrv.jp
+            24/200文字（半角英数字）
+            サイトURLについて
+            利用者同意画面に表示されます。
+    
+    アプリケーションの説明
+        当サイトではYahoo apiを利用してアフィリエイトを行っております。
+    
+    利用するスコープ
+        利用可能なスコープはありません
+            ※スコープを変更すると、発行済みのリフレッシュトークンがすべて無効になり、アプリケーションの全ユーザーは再同意が必要になります。変更は慎重に行ってください。
+            利用するスコープについて
+            UserInfoAPIで使用するスコープはここでは指定せず、ユーザー認可リクエストにおいてパラメータで指定します。詳しくはYahoo! ID連携のドキュメントをご覧ください。
+
+ガイドライン
+    ガイドラインに同意しますか？(必須)
+        同意する
+            ガイドラインについて
+            アプリケーションを開発される前に必ずご確認ください。
+            Yahoo! JAPANが提供するWeb APIごとに利用方法が定められています。各APIの利用方法に同意いただける場合のみご利用ください。

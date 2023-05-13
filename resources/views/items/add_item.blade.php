@@ -2,8 +2,18 @@
 
 @section('content')
 <div class="buy-now">
-	<a href={{ route('item_list', $category->id) }} class="btn btn-danger btn-buy-now" style="bottom: 6rem;">商品⼀覧へ</a>
+	<a href={{ route('item_list', $category->id) }} class="btn btn-danger btn-buy-now" style="bottom: 6rem;">{{ $category->name }}:商品⼀覧へ</a>
 </div>
+
+<div class="pagetitle" style="padding: 10px 30px 0px;">
+	<nav>
+		<ol class="breadcrumb">
+			<li class="breadcrumb-item"><a href="/">Yahoo</a></li>
+			<li class="breadcrumb-item active">{{ $category->name }}</li>
+		</ol>
+	</nav>
+</div><!-- End Page Title -->
+
 <div class="content-wrapper">
 	<div class="container-xxl flex-grow-1 container-p-y">
 		<div class="card p-4">
@@ -131,6 +141,7 @@
 			url: "{{ route('scan', $category->id) }}",
 			type: "get",
 			success: function(response) {
+				console.log(response);
 				if (response.is_reg == 1) {
 					$('#register-status').css('display', 'block');
 					$('#track-status').css('display', 'none');

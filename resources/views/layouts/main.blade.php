@@ -140,7 +140,7 @@
 
 					<ul class="menu-inner py-1">
 						<!-- Dashboard -->
-						<li <?php if (strpos(url()->current(), "welcome")) echo 'class="menu-item active"';
+						<li <?php if (url()->current() == env('APP_URL')) echo 'class="menu-item active"';
 								else echo 'class="menu-item"'; ?>>
 							<a href="{{ route('welcome') }}" class="menu-link">
 								<i class="menu-icon tf-icons bx bx-home-circle"></i>
@@ -160,7 +160,8 @@
 							</a>
 							<ul class="menu-sub">
 								@foreach ($categories as $c)
-								<li class="menu-item">
+								<li <?php if (url()->current() == env('APP_URL') . "/item/add/" . $c->id) echo 'class="menu-item active"';
+								else echo 'class="menu-item"'; ?>>
 									<a href="{{ route('add_item', $c->id) }}" <?php if (strpos(url()->current(), "item/add/{{ $c->id }}")) echo 'class="active"'; else echo 'class="menu-link collapsed"';?>>
 										<div>{{$c->name}}</div>
 									</a>
@@ -177,7 +178,8 @@
 							</a>
 							<ul class="menu-sub">
 								@foreach ($categories as $c)
-								<li class="menu-item">
+								<li <?php if (url()->current() == env('APP_URL') . "/item/list/" . $c->id) echo 'class="menu-item active"';
+								else echo 'class="menu-item"'; ?>>
 									<a href="{{ route('item_list', $c->id) }}" <?php if (strpos(url()->current(), "item/list/{{ $c->id }}")) echo 'class="active"'; else echo 'class="menu-link collapsed"';?>>
 										<div>{{$c->name}}</div>
 									</a>
@@ -358,7 +360,7 @@
 
 			function removeSpinner() {
 				$("#loader-4").fadeOut(70, function () { // fadeOut complete. Remove the loadingSpinner
-				$("#loader-4").hide(); //makes page more lightweight 
+					$("#loader-4").hide(); //makes page more lightweight 
 				});
 			}
 		</script>

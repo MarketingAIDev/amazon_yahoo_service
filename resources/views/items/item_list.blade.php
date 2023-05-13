@@ -17,8 +17,18 @@
 
 @section('content')
 <div class="buy-now">
-	<a href={{ route('add_item', $category->id) }} class="btn btn-danger btn-buy-now" style="bottom: 6rem;">カテゴリーへ</a>
+	<a href={{ route('add_item', $category->id) }} class="btn btn-danger btn-buy-now" style="bottom: 6rem;">{{ $category->name }}:カテゴリーへ</a>
 </div>
+
+<div class="pagetitle" style="padding: 10px 30px 0px;">
+	<nav>
+		<ol class="breadcrumb">
+			<li class="breadcrumb-item"><a href="/">Yahoo</a></li>
+			<li class="breadcrumb-item active">{{ $category->name }}</li>
+		</ol>
+	</nav>
+</div><!-- End Page Title -->
+
 <div class="content-wrapper">	
 	<div class="container-xxl flex-grow-1 container-p-y">
 		<div class="card">
@@ -197,7 +207,7 @@
 	$(document).ready(function () {
 		setInterval(() => {
 			location.reload();
-		}, 60 * 1000);
+		}, 10 * 60 * 1000);
 	});
 	</script>
 @endsection

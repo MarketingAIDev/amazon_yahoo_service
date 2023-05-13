@@ -16,7 +16,7 @@ exports.updateInfo = async () => {
 
 yahooTracking = async (category) => {
 	await itemList
-		.findAll({ where: { user_id: category.user_id, status: 1 } })
+		.findAll({ where: { category_id: category.id } })
 		.then((items) => {
 			var index = 0;
 			
@@ -77,7 +77,7 @@ class CheckItemInfo {
 		this.query.category_id = this.category.id;
 
 		let url =
-			`https://shopping.yahooapis.jp/ShoppingWebService/V3/itemSearch?appid=${this.category.yahoo_id}&jan_code=${this.item.jan}&image_size=76&results=1&price_from=${this.category.target_price}&in_stock=true&sort=%2Bprice&condition=new`;
+			`https://shopping.yahooapis.jp/ShoppingWebService/V3/itemSearch?appid=${this.category.yahoo_id}&affiliate_type=vc&affiliate_id=https%3A%2F%2Fck.jp.ap.valuecommerce.com%2Fservlet%2Freferral%3Fsid%3D3691564%26pid%3D889248890%26vc_url%3D&jan_code=${this.item.jan}&image_size=76&results=1&price_from=${this.category.target_price}&in_stock=true&sort=%2Bprice&condition=new`;
 
 		await axios
 			.get(url, {})
@@ -120,6 +120,8 @@ class CheckItemInfo {
 						var productImgUrl =
 							`https://graph.keepa.com/pricehistory.png?key=6trubr9p3mrqrvecb6jihjq33mgiitmckbf3lj44e32equehfodic3kkf2atpf02&asin=${this.item.asin}&domain=co.jp&salesrank=1`;
 
+						var shopUrl = this.item.shop_url;
+
 						var axios = require("axios");
 						var data = JSON.stringify({
 							content:
@@ -141,7 +143,9 @@ class CheckItemInfo {
 								"\n" +
 								keepaUrl +
 								"\n" +
-								productImgUrl,
+								productImgUrl +
+								"\n" +
+								shopUrl,
 						});
 
 						var config = {

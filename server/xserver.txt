@@ -1,4 +1,3 @@
-
 https://secure.xserver.ne.jp/xapanel/login/xserver/server
 
 アカウントID    ： chry385086

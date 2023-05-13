@@ -1,0 +1,181 @@
+~~~~~~~~~~ valuecommerce register URL ~~~~~~~~~~
+
+https://www.valuecommerce.ne.jp/
+
+email address
+    moonrider.crowdworks@gmail.com
+________________
+after registering mail1_01
+password    
+    Moon@rider1049
+
+security question
+    pet name
+        Nana
+________________
+
+契約者タイプ(必須)
+    個人 法人
+
+氏名(必須)
+    姓
+        野中
+    名    
+        馨太
+
+フリガナ(必須)
+    セイ
+        ノナカ
+    メイ
+        ケイタ
+
+郵便番号
+    6520047
+
+住所(必須)
+    兵庫県神戸市兵庫区下沢通
+
+建物名
+    5-2-19ラ・シエスタ301号
+
+電話番号(必須)
+    819058835402
+
+アフィリエイトを行うサイト・メディア(必須)
+    サイト（Web・スマホ・ブログ）
+    アプリ
+    YouTube
+    Instagram
+    Twitter
+
+        checkbox checked
+
+サイト名(必須)
+    アマゾン・ヤフーアフィリエイトサイト
+
+サイトURL(必須)
+    https://xs786968.xsrv.jp
+
+サイトの内容(必須)
+    当サイトではYahoo apiを利用してアフィリエイトを行っております。
+
+アフィリエイトサイトカテゴリー(必須)
+    検索サイト
+
+プログラム提携(必須)
+    yahoo shopping
+
+金融機関(必須)
+    楽天
+    ギター
+
+口座番号(必須)
+    4603318
+
+口座名義(必須)
+    ノナカケイタ
+
+口座タイプ(必須)
+    普通
+
+~~~~~~~~~~ valuecommerce product search URL ~~~~~~~~~~
+
+https://pub-docs.valuecommerce.ne.jp/docs/as-63-item-api/
+https://www.valuecommerce.ne.jp/
+
+https://webservice.valuecommerce.ne.jp/productdb/search?token=1571d294868bc45f11a3353708aad795c&keyword=4934743001290&format=json
+
+~~~~~~~~~~ valuecommerce email after registering ~~~~~~~~~~
+
+サイト運営者 様
+
+この度は、バリューコマースアフィリエイトプログラムにお申込
+みいただきましてありがとうございます。
+
+アマゾン・ヤフーアフィリエイトサイト
+
+お申込み内容に基づいて弊社にて適性審査を行い、後日メールに
+て審査結果をお知らせいたします。
+
+＜審査結果のご連絡＞
+他アフィリエイトサイトの申込み状況により、お時間を頂戴する
+可能性がございますが、遅くとも～3営業日以内にはご連絡となります。
+
+※審査は営業日（平日9:00-18:00）に行っております。
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+■管理画面へのログインについて
+
+仮パスワードを発行しましたので、さっそくアフィリエイト管理
+画面にログインをし、広告掲載の準備を進めましょう！
+
+【ログイン手順】
+1. アフィリエイト管理画面( https://www.valuecommerce.ne.jp/?mail1_01)
+　 へアクセス
+
+2. [メールアドレス]と[パスワード]の各欄に、申し込みフォームで入力した
+　 Eメールアドレスと下記に記載されている仮パスワードを入力し［ログイン］
+　 ボタンをクリック
+
+仮パスワード(Temporary password)
+SFYQQWBXGT8X7QL0
+
+
+ログインが成功したら本パスワードの設定および秘密の質問の設定をしてくだ
+さい。
+
+
+※　※　審査中の広告掲載に関する留意事項　※　※
+
+サイトの適正審査中でも管理画面にログイン、広告を設定することが可能です
+が、広告コードを貼り付けても審査中はバリューコマースのデフォルト広告が
+表示されます。この広告がクリックされても報酬は発生しません。
+
+
+■サービス開始までに以下のことを確認しましょう
+－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－
+１.　 広告掲載方法の確認
+－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－
+　　審査通過後、すぐに広告掲載ができるように以下で広告の掲載方法
+　　を確認しましょう。
+
+　　《スタートアップガイド》
+　　 https://www.valuecommerce.ne.jp/startup/?mail1_02
+
+－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－
+２.　 広告主との提携
+－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－　　　
+　　上記手順に従って、自分が掲載したい広告主との提携まで完了させましょう！
+　　「即時提携」の広告主を選ぶとスムーズです。
+
+★どんな広告主と提携すればいいか分からないという方は・・・
+　　「広告主選びのヒント」https://www.valuecommerce.ne.jp/stepup/hints/index.html?mail1_03
+
+－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－
+３.　 アフィリエイト運営ポリシーの確認
+－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－
+   アフィリエイトサイト運営者のみなさまが
+   知らないうちに不正・禁止行為を行ってしまうことがないよう
+　 お願いや注意点などを記載しました。
+   必ずお読みになった上で、アフィリエイトサイト運営にお役立てください。
+
+　　《アフィリエイト運営ポリシー》
+　　 https://www.valuecommerce.ne.jp/policy/as_attention.html
+
+－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－
+
+
+それでは、審査結果のご連絡まで今しばらくお待ちください！
+
+------------------------
+バリューコマース株式会社
+アフィリエイトサポート
+account@valuecommerce.ne.jp
+------------------------
+
+_________________ advertisement tag _________________
+<script language="javascript" src="//ad.jp.ap.valuecommerce.com/servlet/jsbanner?sid=3691564&pid=889248890"></script><noscript><a href="//ck.jp.ap.valuecommerce.com/servlet/referral?sid=3691564&pid=889248890" rel="nofollow"><img src="//ad.jp.ap.valuecommerce.com/servlet/gifbanner?sid=3691564&pid=889248890" border="0"></a></noscript>
+
+<amp-ad width='300' height='250' type='valuecommerce' data-sid='3691564' data-pid='889248890'></amp-ad>
+
+<a href="//ck.jp.ap.valuecommerce.com/servlet/referral?sid=3691564&pid=889248890" rel="nofollow"><img src="//ad.jp.ap.valuecommerce.com/servlet/gifbanner?sid=3691564&pid=889248890" border="0"></a>
