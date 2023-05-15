@@ -1,5 +1,5 @@
 const axios = require("axios");
-const { itemList, categoryList } = require("../models");
+const { itemList, categoryList, logList } = require("../models");
 
 exports.updateInfo = async () => {
 	await categoryList
@@ -88,7 +88,8 @@ class CheckItemInfo {
 					this.query.img_url = this.result.image.small;
 					this.query.name = this.result.name;
 					this.query.min_price = Number(this.result.price);
-					this.query.shop_url = this.result.url;
+					this.query.shop_url = this.result.url.replace('https://ck.jp.ap.valuecommerce.com/servlet/referral?sid=3691564&pid=889248890&vc_url=', '').replaceAll('%2F', '/').replaceAll('%3A', ':');
+
 					this.query.is_notified = 0;
 				} else {
 					this.query.name = "JANに一致する商品は見つかりませんでした。";
@@ -104,11 +105,15 @@ class CheckItemInfo {
 				itemList.findAll({ where: searchQuery }).then(async (data) => {
 					if (this.query.min_price < this.category.target_price) return;
 
+					// if (this.query.min_price < 10000 && this.item.is_notified == 0) {
 					if (this.query.min_price < this.item.target_price && this.item.is_notified == 0) {
+
+						var name = "商品名:" + this.item.name;
 						var tar_price = "前回の価格:" + this.item.register_price;
 						var cur_price = "今回の価格:" + this.query.min_price;
-						var productUrl = "URL:" + this.query.img_url;
-						// var category = "大カテゴリー名:" + this.machine.category;
+						var yahooUrl = "Yahoo shopping URL:" + this.query.shop_url;
+						var amazonUrl = `Aamazon shopping URL: https://www.amazon.co.jp/dp/${this.item.asin}?tag=${this.category.partner_tag}&linkCode=ogi&th=1&psc=1`;
+						var category = "大カテゴリー名:" + this.category.name;
 						// var ranking =
 							// "大カテゴリーのランキング:" +
 							// item.BrowseNodeInfo.WebsiteSalesRank.SalesRank;
@@ -120,19 +125,23 @@ class CheckItemInfo {
 						var productImgUrl =
 							`https://graph.keepa.com/pricehistory.png?key=6trubr9p3mrqrvecb6jihjq33mgiitmckbf3lj44e32equehfodic3kkf2atpf02&asin=${this.item.asin}&domain=co.jp&salesrank=1`;
 
-						var shopUrl = this.item.shop_url;
+						var shopUrl = this.query.shop_url;
 
 						var axios = require("axios");
 						var data = JSON.stringify({
 							content:
+								name +
+								"\n" +
 								tar_price +
 								"\n" +
 								cur_price +
 								"\n" +
-								productUrl +
+								yahooUrl +
 								"\n" +
-								// category +
-								// "\n" +
+								amazonUrl +
+								"\n" +
+								category +
+								"\n" +
 								// ranking +
 								// "\n" +
 								shop +
@@ -151,24 +160,27 @@ class CheckItemInfo {
 						var config = {
 							method: "post",
 							maxBodyLength: Infinity,
-							url: this.user.web_hook,
+							url: this.category.web_hook,
 							headers: {
 								"Content-Type": "application/json",
 							},
 							data: data,
 						};
 
-						axios(config)
-							.then(function (response) {
-								console.log(JSON.stringify(response.data));
-								this.query.is_notified = 1;
-								products.update(query, { where: condition });
+						var note = {
+							user_id: this.category.user_id,
+							category_id: this.category.name + "\n" + this.category.web_hook,
+							asin: this.item.asin,
+							msg: name + "\n" + tar_price + "\n" + cur_price + "\n" + yahooUrl,
+						};
 
-								// var note = {
-								// 	code: data,
-								// 	user_id: this.category.user_id,
-								// };
-								// errors.create(note);
+						axios(config)
+							.then(function () {
+								var query = {};
+								query.is_notified = 1;
+								itemList.update(query, { where: searchQuery });
+								logList.create(note);
+								console.log('notification sent successfully!!!')
 							})
 							.catch(function (err) {
 								console.log("cant notify to discord>>>>>>>>>>", err.message);

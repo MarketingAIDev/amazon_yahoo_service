@@ -10,17 +10,16 @@
 @endsection
 
 @section('content')
-<div class="pagetitle" style="padding: 10px 30px 0px;">
-	<nav>
-		<ol class="breadcrumb">
-			<li class="breadcrumb-item"><a href="/">Yahoo</a></li>
-			<li class="breadcrumb-item active">アカウント</li>
-		</ol>
-	</nav>
-</div><!-- End Page Title -->
-
 <div class="content-wrapper">
 	<div class="container-xxl flex-grow-1 container-p-y">
+		<div class="pagetitle">
+			<nav>
+				<ol class="breadcrumb">
+					<li class="breadcrumb-item"><a href="/">Yahoo</a></li>
+					<li class="breadcrumb-item active">アカウント</li>
+				</ol>
+			</nav>
+		</div><!-- End Page Title -->
 		<div class="content" style="padding-top: 0.5rem;">
 			<div class="col-12">
 				<div class="card card-info card-outline">

@@ -66,7 +66,7 @@ class LoginController extends Controller
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
 
-            return redirect()->route('welcome');
+            return view('mypage.dashboard');
         }
 
         return back()->withErrors([

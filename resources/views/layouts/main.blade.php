@@ -72,7 +72,7 @@
 				<!-- Menu -->
 				<aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
 					<div class="app-brand demo">
-						<a href="{{ route('welcome') }}" class="app-brand-link">
+						<a href="/" class="app-brand-link">
 							<span class="app-brand-logo demo">
 								<svg
 									width="25"
@@ -142,7 +142,7 @@
 						<!-- Dashboard -->
 						<li <?php if (url()->current() == env('APP_URL')) echo 'class="menu-item active"';
 								else echo 'class="menu-item"'; ?>>
-							<a href="{{ route('welcome') }}" class="menu-link">
+							<a href="/" class="menu-link">
 								<i class="menu-icon tf-icons bx bx-home-circle"></i>
 								<div>ダッシュボード</div>
 							</a>
@@ -193,6 +193,14 @@
 							<a href="{{ route('category_list') }}" class="menu-link">
 								<i class="menu-icon tf-icons bx bxs-category-alt"></i>
 								<div>カテゴリー管理</div>
+							</a>
+						</li>
+						
+						<li <?php if (strpos(url()->current(), "noitfy")) echo 'class="menu-item active"';
+								else echo 'class="menu-item"'; ?>>
+							<a href="{{ route('notify_list') }}" class="menu-link">
+								<i class="menu-icon tf-icons bx bxs-message-rounded-check"></i>
+								<div>通知ログ</div>
 							</a>
 						</li>
 

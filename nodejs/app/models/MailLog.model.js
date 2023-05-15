@@ -4,7 +4,10 @@ module.exports = (sequelize, Sequelize) => {
 			type: Sequelize.INTEGER
 		},
 		category_id: {
-			type: Sequelize.INTEGER
+			type: Sequelize.STRING
+		},
+		asin: {
+			type: Sequelize.STRING
 		},
 		msg: {
 			type: Sequelize.STRING

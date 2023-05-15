@@ -72,7 +72,7 @@ class ItemController extends Controller
 			$data .= $i['asin']."\n";
 		}
 		
-		$filename = $category->name . "ASINリスト";
+		$filename = $category->name . "_ASINリスト";
 		
 		header('Content-Type: application/csv');
 		header('Content-Disposition: attachment; filename="' . $filename . "_" . date("Y-m-d") . '.csv"');

@@ -24,7 +24,7 @@ Route::post('update_password', [LoginController::class, 'updatePwd'])->name('pas
 // Main Routes
 Route::group(['middleware' => ['auth']], function() {
 
-	Route::view('/', 'mypage.dashboard')->name('welcome');
+	Route::view('/', 'mypage.dashboard')->name('dashboard');
 
 	// Item Routes
 	Route::prefix('item')->group(function() {
@@ -48,6 +48,8 @@ Route::group(['middleware' => ['auth']], function() {
 		Route::get('/restart/{id}', [CategoryController::class, 'restart'])->name('restart');
 		Route::post('/save/{id}', [CategoryController::class, 'save'])->name('save_category');
 	});
+
+	Route::view('/noitfy', 'logs.notify')->name('notify_list');
 	
 	Route::get('/mypage/register_tracking', [MypageController::class, 'register_tracking'])->name('register_tracking');
 	Route::get('/mypage/update_tracking', [MypageController::class, 'update_tracking'])->name('update_tracking');

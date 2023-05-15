@@ -99,7 +99,7 @@ class RegisterController extends Controller
 
         Auth::login($user);
 
-        return redirect()->route('welcome');
+        return view('mypage.dashboard');
     }
 
     protected function create(array $data)

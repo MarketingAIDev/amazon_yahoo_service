@@ -5,17 +5,16 @@
 	<a href={{ route('item_list', $category->id) }} class="btn btn-danger btn-buy-now" style="bottom: 6rem;">{{ $category->name }}:商品⼀覧へ</a>
 </div>
 
-<div class="pagetitle" style="padding: 10px 30px 0px;">
-	<nav>
-		<ol class="breadcrumb">
-			<li class="breadcrumb-item"><a href="/">Yahoo</a></li>
-			<li class="breadcrumb-item active">{{ $category->name }}</li>
-		</ol>
-	</nav>
-</div><!-- End Page Title -->
-
 <div class="content-wrapper">
 	<div class="container-xxl flex-grow-1 container-p-y">
+		<div class="pagetitle">
+			<nav>
+				<ol class="breadcrumb">
+					<li class="breadcrumb-item"><a href="/">Yahoo</a></li>
+					<li class="breadcrumb-item active">{{ $category->name }}</li>
+				</ol>
+			</nav>
+		</div><!-- End Page Title -->
 		<div class="card p-4">
 			<form class="form-horizontal">
 				<div class="card-body" style="padding:0px">
